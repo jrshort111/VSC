@@ -1,28 +1,18 @@
-const { Client, GatewayIntentBits, Events } = require('discord.js');
+// last month i was lazy to code this so i used chatgpt my bad here is real code
+
+
+const { Client, GatewayIntentBits} = require('discord.js');
+require('dotenv').config();
 
 
 const client = new Client({
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
+              GatewayIntentBits.Guilds,  
+      GatewayIntentBits.GuildMessages,  
+      GatewayIntentBits.MessageContent]
 });
+// gateway intents that are NEEDED to start
 
-
-client.once(Events.ClientReady, () => {
-    console.log(`Logged in as ${client.user.tag}!`);
-    client.user.setActivity('yap', { type: 'PLAYING' });
+client.once('ready', () => {
+    console.log("[BOT] Logged In as ${client.user.tag]");
 });
-
-
-client.on(Events.MessageCreate, message => {
-    if (message.author.bot) return;
-
-    if (message.content === '!up') {
-        message.reply('bot,backend is up!');
-    }
-});
-
-
-client.login('YOUR_BOT_TOKEN');
