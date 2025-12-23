@@ -1,4 +1,4 @@
-// last month i was lazy to code this so i used chatgpt my bad here is real code
+// Rewritten and implemented by Me!
 
 
 const { Client, GatewayIntentBits} = require('discord.js');
